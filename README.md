@@ -1,4 +1,4 @@
-hangine
+Hangine
 =======
 
-C++/OpenGL Game Engine
+C++/OpenGL Game Engine (because possible)
