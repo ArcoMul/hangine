@@ -49,7 +49,7 @@ class Vector3{
 		//Clamp
 		
 		//Cross
-		Vector3 CrossProduct(const Vector3& vec);
+		/*Vector3 CrossProduct(const Vector3& vec);
 
 		//Distance between 2 vectors
 		
@@ -57,8 +57,16 @@ class Vector3{
 		float DotProduct(const Vector3& vec);
 		
 		//Normalize
-		void Normalize();
-		
+		void Normalize();*/
+
+		//Magnitude
+		float magnitude() const;
+		float magnitudeSquared() const;
+		Vector3 normalize() const;
+		float dot(const Vector3 &other) const;
+		Vector3 cross(const Vector3 &other) const;
+
+
 		//change X, Y, Z in one function
 		void SetAll(float newX, float newY, float newZ);
 		void SetAll(Vector3& vec);		//Get Vector3 reference 

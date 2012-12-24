@@ -108,7 +108,7 @@ float Vector3::Length(){
 }
 
 //Dot
-float Vector3::DotProduct(const Vector3& vec){
+/*float Vector3::DotProduct(const Vector3& vec){
 	return (X * vec.X + Y * vec.Y + Z * vec.Z);
 }
 
@@ -123,7 +123,31 @@ void Vector3::Normalize(){
 
 	}
 }
-		
+*/
+
+float Vector3::magnitude() const {
+	return sqrt(X * X + Y * Y + Z * Z);
+}
+
+float Vector3::magnitudeSquared() const {
+	return X * X + Y * Y + Z * Z;
+}
+
+Vector3 Vector3::normalize() const {
+	float m = sqrt(X * X + Y * Y + Z * Z);
+	return Vector3(X / m, Y / m, Z / m);
+}
+
+float Vector3::dot(const Vector3 &other) const {
+	return X * X + Y * other.Y + Z * other.Z;
+}
+
+Vector3 Vector3::cross(const Vector3 &other) const {
+	return Vector3(Y * Z - Z * other.Y,
+				 Z * X - X * other.Z,
+				 Z * other.Y - Y * other.Z);
+}
+
 //change X, Y, Z in one function
 void Vector3::SetAll(float newX, float newY, float newZ){
 	X = newX;
