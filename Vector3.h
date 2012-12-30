@@ -19,7 +19,7 @@ class Vector3{
 		Vector3(float value);
 		//Vector3(Vector2, float z);
 		Vector3(float x, float y, float z);
-
+		~Vector3();
 
 		//*********************************************************
 		//Operator Calculates

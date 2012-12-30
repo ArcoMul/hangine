@@ -1,6 +1,6 @@
 //Include OpenGL header files, so that we can use OpenGL
 
-#include <iostream>
+/*#include <iostream>
 #include <stdlib.h> //Needed for "exit" function
 
 #ifdef __APPLE__
@@ -20,41 +20,13 @@ using namespace std;
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  * FIELDS
  *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-
-
-//Loads a terrain from a heightmap.  The heights of the terrain range from
-//-height / 2 to height / 2.
-Terrain* loadTerrain() {
-	//Image* image = loadBMP(filename);
-	Terrain* t = new Terrain(128, 128);
-	for(int y = 0; y < 128; y++) {
-		for(int x = 0; x < 128; x++) {
-			//unsigned char color =
-			//	(unsigned char)image->pixels[3 * (y * image->width + x)];
-			//float h = height * ((color / 255.0f) - 0.5f);
-			float h = 10.0f;
-			t->SetHeight(x, y, h);
-		}
-	}
-	
-	//delete image;
-	t->ComputeNormals();
-	return t;
-}
-
-
-Terrain* _terrain;
-void cleanup() {
-	delete _terrain;
-}
-
+/*
 
 //Called when a key is pressed
 void handleKeypress(unsigned char key, //The key that was pressed
 					int x, int y) {    //The current mouse coordinates
 	switch (key) {
 		case 27: //Escape key
-			cleanup();
 			exit(0); //Exit the program
 	}
 }
@@ -68,7 +40,6 @@ void Initialize() {
 	glEnable(GL_LIGHT0);
 	glEnable(GL_NORMALIZE);
 	glShadeModel(GL_SMOOTH);
-
 }
 
 
@@ -90,9 +61,9 @@ void handleResize(int w, int h) {
 
 
 //Draws the 3D scene
-void drawScene() {
+void Draw() {
 	//Clear information from last draw
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
@@ -114,7 +85,7 @@ void drawScene() {
 				 0.0f,
 				 -(float)(128 - 1) / 2);
 	
-	_terrain->Draw();
+	//_terrain->Draw();
 	
 	glutSwapBuffers();
 
@@ -129,7 +100,7 @@ void Update(int value)
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  * START of the engine
- *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+ *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 void main(int argc, char** argv) {
 	//Initialize GLUT. Don't put code before this, otherwise the programm wil start slower
 	glutInit(&argc, argv);
@@ -139,17 +110,16 @@ void main(int argc, char** argv) {
 	//Create the window
 	glutCreateWindow("Hangine - editor");
 	Initialize();							//Initialize rendering
-	_terrain = loadTerrain();
 
 	//Set handler functions for drawing, keypresses, and window resizes
-	glutDisplayFunc(drawScene);
+	glutDisplayFunc(Draw);
 	glutKeyboardFunc(handleKeypress);
 	glutReshapeFunc(handleResize);
 		
 	glutTimerFunc(25, Update, 0);
 	glutMainLoop();							//Start the main loop.  glutMainLoop doesn't return.
 }
-
+*/
 
 
 

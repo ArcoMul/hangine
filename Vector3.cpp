@@ -28,6 +28,10 @@ Vector3::Vector3(float x, float y, float z){
 	Z = z;
 }
 
+Vector3::~Vector3() {
+	//delete X;
+}
+
 
 //*********************************************************
 //Operator Calculates
